@@ -1,7 +1,15 @@
-import React from "react";
+import { Wrapper, Container } from "./Style";
 
-const PageLayout = () => {
-  return <div>PageLayout</div>;
+type PageLayoutProps = {
+  children: React.ReactNode;
+};
+
+const PageLayout = ({ children }: PageLayoutProps) => {
+  return (
+    <Container>
+      <Wrapper>{children}</Wrapper>
+    </Container>
+  );
 };
 
 export default PageLayout;
