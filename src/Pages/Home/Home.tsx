@@ -1,5 +1,7 @@
+import FiltersContainer from "../../Components/FiltersContainer/FiltersContainer";
 import PageLayout from "../../Components/PageLayout/PageLayout";
 import SingleProject from "../../Components/SingleProject/SingleProject";
+
 import dataArray from "../../dataArray";
 import dataArrayProps from "../../Models/dataArray.model";
 import { List } from "./Style";
@@ -7,6 +9,7 @@ import { List } from "./Style";
 const Home = () => {
   return (
     <PageLayout>
+      <FiltersContainer />
       <List>
         {dataArray?.map((item: dataArrayProps, index: number) => (
           <SingleProject key={index} {...item} />

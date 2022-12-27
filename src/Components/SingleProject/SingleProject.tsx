@@ -22,7 +22,7 @@ const SingleProject = (props: dataArrayProps) => {
       </Details>
       <ProjectTagsContainer>
         {props.tools.concat(props.languages)?.map((item, index) => (
-          <ProjectTags key={index} text={item} value={false} />
+          <ProjectTags key={index} text={item} />
         ))}
       </ProjectTagsContainer>
     </Container>
