@@ -9,8 +9,9 @@ type GlobalContextProps = {
   children: React.ReactNode;
 };
 
-export const CreateGlobalContext =
-  createContext<CreateGlobalContextProps | null>(null);
+export const CreateGlobalContext = createContext<CreateGlobalContextProps>(
+  {} as CreateGlobalContextProps
+);
 
 export const GlobalContext = ({ children }: GlobalContextProps) => {
   const [activeFilters, setActiveFilters] = useState([]);

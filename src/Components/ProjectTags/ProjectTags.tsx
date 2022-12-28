@@ -8,16 +8,14 @@ type ProjectTagsProps = {
 
 const ProjectTags = ({ text }: ProjectTagsProps) => {
   const [active, setActive] = useState(false);
-  const myContext = useContext(CreateGlobalContext);
+  const { activeFilters, setActiveFilters } = useContext(CreateGlobalContext);
 
   useEffect(() => {
     const handleClick = () => {
       if (active) {
-        myContext?.setActiveFilters([...myContext.activeFilters, text]);
+        setActiveFilters([...activeFilters, text]);
       } else {
-        myContext?.setActiveFilters(
-          myContext.activeFilters.filter((item) => item !== text)
-        );
+        setActiveFilters(activeFilters.filter((item) => item !== text));
       }
     };
 
@@ -26,9 +24,7 @@ const ProjectTags = ({ text }: ProjectTagsProps) => {
 
   return (
     <Container
-      className={
-        active || myContext?.activeFilters.includes(text) ? "active" : ""
-      }
+      className={active || activeFilters.includes(text) ? "active" : ""}
       onClick={() => {
         setActive(!active);
       }}
