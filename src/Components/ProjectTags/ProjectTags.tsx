@@ -1,5 +1,5 @@
 import { Container } from "./Style";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { CreateGlobalContext } from "../../Context/GlobalContext";
 
 type ProjectTagsProps = {
@@ -10,22 +10,23 @@ const ProjectTags = ({ text }: ProjectTagsProps) => {
   const [active, setActive] = useState(false);
   const { activeFilters, setActiveFilters } = useContext(CreateGlobalContext);
 
-  useEffect(() => {
-    const handleClick = () => {
-      if (active) {
-        setActiveFilters([...activeFilters, text]);
-      } else {
-        setActiveFilters(activeFilters.filter((item) => item !== text));
-      }
-    };
-
-    handleClick();
-  }, [active]);
+  const handleClick = () => {
+    if (!active) {
+      setActiveFilters([...activeFilters, text]);
+    } else {
+      setActiveFilters(activeFilters.filter((item) => item !== text));
+    }
+  };
 
   return (
     <Container
-      className={active || activeFilters.includes(text) ? "active" : ""}
+      className={
+        activeFilters.length !== 0 && activeFilters.includes(text)
+          ? "active"
+          : ""
+      }
       onClick={() => {
+        handleClick();
         setActive(!active);
       }}
     >
