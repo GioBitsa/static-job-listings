@@ -11,6 +11,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 
     &:hover {
         border-color: ${palette.primary};
@@ -22,6 +23,22 @@ export const Container = styled.div`
         object-fit: contain;
         margin-right: 30px;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 900px) {
+        padding-top: 40px;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 45px;
+
+        img {
+            width: 50px;
+            height: 50px;
+            margin: 0;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+        }
     }
 `
 
@@ -71,8 +88,16 @@ export const Details = styled.div`
             display: none
         }
     }
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid ${palette.background}
+    }
 `
 
 export const ProjectTagsContainer = styled.div`
     display: flex;
+    align-items: center;
 `
